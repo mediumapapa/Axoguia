@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Axoguia</string>
+    <string name="textview">TextView</string>
+    <string name="textvieww">TextView</string>
 </resources>
