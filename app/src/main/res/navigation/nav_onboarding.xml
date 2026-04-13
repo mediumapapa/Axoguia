@@ -21,9 +21,19 @@
         android:id="@+id/registerFragment2"
         android:name="com.example.axoguia.RegisterFragment"
         android:label="fragment_register"
-        tools:layout="@layout/fragment_register" />
+        tools:layout="@layout/fragment_register" >
+        <action
+            android:id="@+id/action_registerFragment2_to_registerPersonalFragment"
+            app:destination="@id/registerPersonalFragment" />
+    </fragment>
     <fragment
         android:id="@+id/restPasswordFragment"
         android:name="com.example.axoguia.RestPasswordFragment"
-        android:label="RestPasswordFragment" />
+        android:label="RestPasswordFragment"
+        tools:layout="@layout/fragment_rest_password" />
+    <fragment
+        android:id="@+id/registerPersonalFragment"
+        android:name="com.example.axoguia.RegisterPersonalFragment"
+        android:label="fragment_register_personal"
+        tools:layout="@layout/fragment_register_personal" />
 </navigation>
