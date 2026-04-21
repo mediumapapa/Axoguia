@@ -12,11 +12,35 @@
         android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/main"
+        app:Layout_constraintEnd_toEndOf="@+id/main"
+        app:layout_constraintTop_toTopOf="@+id/main"
+        app:layout_constraintStart_toStart0f="@+id/main"
         app:defaultNavHost="true"
+        app:navGraph="@navigation/nav_onboarding"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/white"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:navGraph="@navigation/nav_onboarding" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/view2"
+            android: layout_width="124dp"
+            android: layout_height="124dp"
+            app: layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEnd0f="parent"
+            app: layout_constraintStart_toStart0f="parent"
+            app: layout_constraintTop_toTop0f="parent"
+            app: lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/loader"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
