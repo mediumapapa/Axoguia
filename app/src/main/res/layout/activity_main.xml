@@ -1,24 +1,50 @@
-
-
-}?xml version="1.0" encoding="utf-8"?>
-    droidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns: app="http://schemas.android.com/apk/res-auto"
-    xmlns: tools="http://schemas.android.com/tools"
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
-    android: Layout_width="match_parent"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-<androidx.fragment.app.FragmentContainerView
-    android:id="@+id/fragmentContainerView"
-    android:name="androidx.navigation. fragment. NavHostFragment"
-    android:layout_width="match_parent"
-    android: Layout_height="match_parent"
-    app:layout_constraintBottom_toBottomOf="@+id/main"
-    app: Layout_constraintEnd_toEnd0f="@+id/main"
-    app:layout_constraintTop_toTopOf="@+id/main"
-    app:layout_constraintStart_toStart0f="@+id/main"
-    app:navGraph="@navigation/nav_onboarding"/>
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentContainerView"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="@+id/main"
+        app:layout_constraintEnd_toEndOf="@+id/main"
+        app:layout_constraintStart_toStartOf="@+id/main"
+        app:layout_constraintTop_toTopOf="@+id/main"
+        app:defaultNavHost="true"
+        app:navGraph="@navigation/nav_onboarding" />
 
-    </androidx.constraintlayout. widget. ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/loaderView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBaseline_toBottomOf="parent">
 
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lottieAnimationView"
+            android:layout_width="124dp"
+            android:layout_height="124dp"
+            android:layout_marginTop="300dp"
+            android:visibility="visible"
+            app:layout_constraintBaseline_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/loader" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

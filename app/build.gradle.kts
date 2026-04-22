@@ -3,11 +3,7 @@ plugins {
 }
 android {
     namespace = "com.example.axoguia"
-    compileSdk {
-        version = release(36) {
-            minorApiLevel = 1
-        }
-    }
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.example.axoguia"
@@ -44,13 +40,14 @@ dependencies {
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.navigation.fragment)
+    implementation(libs.lottie)
     // implementation(libs.androidx.annotation)
     //implementation(libs.androidx.lifecycle.livedata.ktx)
     //implementation(libs.androidx.lifecycle.viewmodel.ktx)
     //implementation(libs.androidx.navigation.fragment.ktx)
     //implementation(libs.androidx.navigation.ui.ktx)
     //implementation(libs.config))
-    testImplementation(libs.lottie)
+    testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 }

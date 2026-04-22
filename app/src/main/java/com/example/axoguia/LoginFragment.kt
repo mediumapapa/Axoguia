@@ -5,14 +5,19 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
+import com.example.axoguia.core.FragmentCommunicator
 import com.example.axoguia.databinding.FragmentLoginBinding
 
 
 class LoginFragment : Fragment() {
-    // TODO: Rename and change types of parameters
+    
     private var _binding: FragmentLoginBinding? = null
     private val binding get() = _binding!!
-
+    //private val viewModel: LoginViewModel by viewModels()
+    private lateinit var communicator: FragmentCommunicator
+    
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -23,11 +28,16 @@ class LoginFragment : Fragment() {
     ): View? {
 
         _binding = FragmentLoginBinding.inflate(inflater, container, false)
+        communicator = requireActivity() as FragmentCommunicator
+        communicator.manegeLoader(true)
         binding.registerButton.setOnClickListener {
             // Navegar a la pantalla de registro
+            findNavController().navigate(R.id.registerFragment2)
         }
         binding.restPasswordButton.setOnClickListener {
             // Navegar a la pantalla de restablecer contraseña
+            findNavController().navigate(R.id.restPasswordFragment)
+
         }
         return binding.root
     }
@@ -54,5 +64,4 @@ class LoginFragment : Fragment() {
             }
     }
 }
-
- */
+*/
