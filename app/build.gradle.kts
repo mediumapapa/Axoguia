@@ -35,8 +35,6 @@ android {
     buildFeatures {
         viewBinding = true
     }
-
-
 }
 
 dependencies {
@@ -45,14 +43,14 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
-    implementation(libs.androidx.annotation)
-    implementation(libs.androidx.lifecycle.livedata.ktx)
-    implementation(libs.androidx.lifecycle.viewmodel.ktx)
-    implementation(libs.androidx.legacy.support.v4)
-    implementation(libs.androidx.recyclerview)
-    implementation(libs.androidx.navigation.fragment.ktx)
-    implementation(libs.androidx.navigation.ui.ktx)
-    testImplementation(libs.junit)
+    implementation(libs.androidx.navigation.fragment)
+    // implementation(libs.androidx.annotation)
+    //implementation(libs.androidx.lifecycle.livedata.ktx)
+    //implementation(libs.androidx.lifecycle.viewmodel.ktx)
+    //implementation(libs.androidx.navigation.fragment.ktx)
+    //implementation(libs.androidx.navigation.ui.ktx)
+    //implementation(libs.config))
+    testImplementation(libs.lottie)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 }
