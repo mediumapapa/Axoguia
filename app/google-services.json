@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "874527387569",
+    "project_id": "axogia",
+    "storage_bucket": "axogia.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:874527387569:android:35508d1e3e6dee3e411790",
+        "android_client_info": {
+          "package_name": "com.example.axoguia"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAfYKMF7LyBYatT2TxC1gAFmZa3-2S7VDU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
