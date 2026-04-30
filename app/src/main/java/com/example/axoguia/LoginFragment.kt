@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.axoguia.core.FragmentCommunicator
@@ -26,10 +27,10 @@ class LoginFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
+        // Inflate the layout for this fragment
         _binding = FragmentLoginBinding.inflate(inflater, container, false)
         communicator = requireActivity() as FragmentCommunicator
-        communicator.manegeLoader(true)
+        setupValidation()
         binding.registerButton.setOnClickListener {
             // Navegar a la pantalla de registro
             findNavController().navigate(R.id.registerFragment2)
@@ -41,27 +42,33 @@ class LoginFragment : Fragment() {
         }
         return binding.root
     }
-}
+    private fun setupValidation() {
+        binding.login.isEnabled = false
 
-/*
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment LoginFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            LoginFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+        binding.username.addTextChangedListener {
+            validateFields()
+        }
+        binding.password.addTextChangedListener {
+            validateFields()
+        }
     }
+
+    private fun validateFields() {
+        val email = binding.username.toString().trim()
+        val password = binding.password.text.toString().trim()
+
+        val isEmailValid = isValidEmail(email)
+        val isPasswordValid = password.length >= 8
+
+        binding.username.error = if (email.isNotEmpty() && isEmailValid) null else "Correo invalido"
+        binding.password.error = if (password.isNotEmpty() && isPasswordValid) null else "Minimo 8 caracteres"
+
+        binding.login.isEnabled =
+            email.isNotEmpty() && password.isNotEmpty() && isEmailValid && isPasswordValid
+    }
+
+    private fun isValidEmail(email: String): Boolean {
+        return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()
+    }
+
 }
-*/

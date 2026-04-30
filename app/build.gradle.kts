@@ -1,9 +1,6 @@
 plugins {
     alias(libs.plugins.android.application)
-    // Add the Google services Gradle plugin
     alias(libs.plugins.firebase)
-
-
 }
 
 android {
@@ -44,19 +41,16 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
-    //implementation(libs.androidx.navigation.fragment)
-    implementation(libs.lottie)  //lottie
-    // implementation(libs.androidx.annotation)
-    //implementation(libs.androidx.lifecycle.livedata.ktx)
-    //implementation(libs.androidx.lifecycle.viewmodel.ktx)
-    //implementation(libs.androidx.navigation.fragment.ktx)
-    //implementation(libs.androidx.navigation.ui.ktx)
-    //implementation(libs.config))
+    implementation(libs.androidx.navigation.fragment)
+    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.androidx.navigation.ui.ktx)
+    implementation(libs.lottie)
 
-    implementation(libs.firebase.bom)
-    implementation(libs.firebase.firestore)
+    // Firebase
+    implementation(platform(libs.firebase.bom))
     implementation(libs.firebase.auth)
-
+    implementation(libs.firebase.firestore)
+    implementation(libs.firebase.auth.ktx)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

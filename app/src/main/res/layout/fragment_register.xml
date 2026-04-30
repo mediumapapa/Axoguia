@@ -94,6 +94,7 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/nameTiet"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="casual"
@@ -114,6 +115,7 @@
                 app:layout_constraintTop_toBottomOf="@id/til_name">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/emailTiet"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="casual"
@@ -134,6 +136,7 @@
                 app:layout_constraintTop_toBottomOf="@id/til_email_reg">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/passwordTiet"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="casual"
