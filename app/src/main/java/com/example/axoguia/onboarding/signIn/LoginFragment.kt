@@ -1,24 +1,24 @@
-package com.example.axoguia
+package com.example.axoguia.onboarding.signIn
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.util.Patterns
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.widget.addTextChangedListener
-import androidx.fragment.app.viewModels
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.example.axoguia.R
 import com.example.axoguia.core.FragmentCommunicator
 import com.example.axoguia.databinding.FragmentLoginBinding
 
-
 class LoginFragment : Fragment() {
-    
+
     private var _binding: FragmentLoginBinding? = null
     private val binding get() = _binding!!
     //private val viewModel: LoginViewModel by viewModels()
     private lateinit var communicator: FragmentCommunicator
-    
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -68,7 +68,7 @@ class LoginFragment : Fragment() {
     }
 
     private fun isValidEmail(email: String): Boolean {
-        return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()
+        return Patterns.EMAIL_ADDRESS.matcher(email).matches()
     }
 
 }

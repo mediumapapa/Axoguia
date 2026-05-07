@@ -1,7 +1,7 @@
-package com.example.axoguia
+package com.example.axoguia.onboarding.signIn
 
 import android.util.Log
-import androidx.lifecycle.ViewModel // Importación añadida
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.axoguia.core.AuthRepository
 import kotlinx.coroutines.launch

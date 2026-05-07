@@ -1,4 +1,4 @@
-package com.example.axoguia
+package com.example.axoguia.onboarding
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.isVisible
+import com.example.axoguia.R
 import com.example.axoguia.core.FragmentCommunicator
 import com.example.axoguia.databinding.ActivityMainBinding
 

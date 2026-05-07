@@ -1,16 +1,15 @@
-package com.example.axoguia
+package com.example.axoguia.onboarding.signup
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.example.axoguia.databinding.FragmentRegisterBinding
-import kotlin.getValue
+import com.example.axoguia.onboarding.signIn.SignInViewModel
 
-
-class RegisterFragment : Fragment() {
+class   RegisterFragment : Fragment() {
     private var _binding: FragmentRegisterBinding? = null
     private val binding get() = _binding!!
     private val viewModel by viewModels<SignInViewModel>()
