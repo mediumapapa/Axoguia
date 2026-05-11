@@ -1,7 +1,7 @@
 package com.example.axoguia.core.repositories
 
 import com.example.axoguia.core.ResponseService
-import com.example.axoguia.onboarding.registpersonal.model.UserProfile
+import com.example.axoguia.onboarding.registerpersonal.model.UserProfile
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.tasks.await

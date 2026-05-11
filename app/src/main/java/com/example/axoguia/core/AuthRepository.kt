@@ -12,9 +12,9 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
 
-class AuthRepository(): Authentication {
-    val auth = FirebaseAuth.getInstance()
-    val firestore = FirebaseFirestore.getInstance()
+class AuthRepository : Authentication {
+    private val auth = FirebaseAuth.getInstance()
+    private val firestore = FirebaseFirestore.getInstance()
 
     override suspend fun requestLogin(
         email: String,
@@ -32,20 +32,31 @@ class AuthRepository(): Authentication {
             ResponseService.Error("Error inesperado. Intenta de nuevo")
         }
     }
+
     override suspend fun requestSignUp(
+        name: String,
         email: String,
         password: String
     ): ResponseService<FirebaseUser> = withContext(Dispatchers.IO) {
         try {
             val result = auth.createUserWithEmailAndPassword(email, password).await()
-            result.user?.let { ResponseService.Success(it) }
-                ?: ResponseService.Error("No se pudo crear el usuario")
+            val user = result.user
+
+            if (user != null) {
+                // Opcional: Guardar el nombre en Firestore
+                val userData = hashMapOf("name" to name, "email" to email)
+                firestore.collection("users").document(user.uid).set(userData).await()
+
+                ResponseService.Success(user)
+            } else {
+                ResponseService.Error("No se pudo crear el usuario")
+            }
         } catch (e: FirebaseAuthUserCollisionException) {
-            ResponseService.Error("Este correo ya esta registrado, intenta ccn otro")
+            ResponseService.Error("Este correo ya está registrado, intenta con otro")
         } catch (e: FirebaseAuthWeakPasswordException) {
-            ResponseService.Error("La contraseña es muy debil")
+            ResponseService.Error("La contraseña es muy débil")
         } catch (e: Exception) {
-            ResponseService.Error("Error inesperado. Intenta de nuevo> ${e.localizedMessage}")
+            ResponseService.Error("Error inesperado: ${e.localizedMessage}")
         }
     }
 }

@@ -1,4 +1,4 @@
-package com.example.axoguia.onboarding.registpersonal.model
+package com.example.axoguia.onboarding.registerpersonal.model
 
 data class UserProfile(
     val id: String,

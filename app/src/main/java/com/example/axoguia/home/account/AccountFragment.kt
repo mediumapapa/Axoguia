@@ -1,4 +1,4 @@
-package com.example.axoguia.home.accunt
+package com.example.axoguia.home.account
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

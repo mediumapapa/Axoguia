@@ -33,7 +33,7 @@
         tools:layout="@layout/fragment_rest_password" />
     <fragment
         android:id="@+id/registerPersonalFragment"
-        android:name="com.example.axoguia.onboarding.registpersonal.RegisterPersonalFragment"
+        android:name="com.example.axoguia.onboarding.registerpersonal.RegisterPersonalFragment"
         android:label="fragment_register_personal"
         tools:layout="@layout/fragment_register_personal" />
 </navigation>

@@ -36,10 +36,10 @@ class RegisterViewModel: ViewModel() {
     }
 
     // --- Operación de registro ---
-    fun requestSignUp(email: String, password: String) {
+    fun requestSignUp(name: String, email: String, password: String) {
         viewModelScope.launch {
             _registerState.value = ResponseService.Loading
-            _registerState.value = authRepository.requestSignUp(email, password)
+            _registerState.value = authRepository.requestSignUp(name, email, password)
         }
     }
 }

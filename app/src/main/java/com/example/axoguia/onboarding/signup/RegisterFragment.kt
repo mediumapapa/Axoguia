@@ -11,18 +11,18 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
+import com.example.axoguia.R
 import com.example.axoguia.core.FragmentCommunicator
+import com.example.axoguia.core.ResponseService
 import com.example.axoguia.databinding.FragmentRegisterBinding
 import com.example.axoguia.onboarding.signIn.SignInViewModel
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.launch
-import kotlin.io.root
 
-class   RegisterFragment : Fragment() {
+class RegisterFragment : Fragment() {
     private var _binding: FragmentRegisterBinding? = null
     private val binding get() = _binding!!
-    private val viewModel by viewModels<SignInViewModel>()
-
+    private val viewModel by viewModels<RegisterViewModel>()
     private lateinit var communicator: FragmentCommunicator
 
     override fun onCreateView(
@@ -39,32 +39,33 @@ class   RegisterFragment : Fragment() {
     }
 
     private fun setupValidation() {
-        binding.signInButton.isEnabled = false
+        binding.registerPersonalButton.isEnabled = false
         val watcher = { validateAndEnable() }
+        binding.nameTiet.addTextChangedListener { validateAndEnable() }
         binding.emailTiet.addTextChangedListener { validateAndEnable() }
         binding.passwordTiet.addTextChangedListener { validateAndEnable() }
-        binding.confirmPasswordTiet.addTextChangedListener { validateAndEnable() }
     }
 
     private fun validateAndEnable() {
         val email = binding.emailTiet.text.toString().trim()
         val pass = binding.passwordTiet.text.toString().trim()
-        val confirm = binding.confirmPasswordTiet.text.toString().trim()
+        val confirm = binding.passwordTiet.text.toString().trim()
 
-        binding.emailTil.error = viewModel.validateEmail(email)
-        binding.passwordTil.error = viewModel.validatePassword(pass)
-        binding.confirmPasswordTil.error =
+        binding.emailTiet.error = viewModel.validateEmail(email)
+        binding.passwordTiet.error = viewModel.validatePassword(pass)
+        binding.passwordTiet.error =
             viewModel.validateConfirmPassword(pass, confirm)
 
-        binding.signInButton.isEnabled =
+        binding.registerPersonalButton.isEnabled =
             viewModel.isRegisterFormValid(email, pass, confirm)
     }
 
     private fun setupClickListeners() {
-        binding.signInButton.setOnClickListener {
+        binding.registerPersonalButton.setOnClickListener {
+            val name = binding.nameTiet.text.toString().trim()
             val email = binding.emailTiet.text.toString().trim()
             val password = binding.passwordTiet.text.toString().trim()
-            viewModel.requestSignUp(email, password)
+            viewModel.requestSignUp(name, email, password)
         }
         binding.registerText.setOnClickListener {
             findNavController().navigateUp()
@@ -78,15 +79,16 @@ class   RegisterFragment : Fragment() {
                     when (state) {
                         is ResponseService.Loading -> {
                             communicator.manageLoader(true)
-                            binding.signInButton.isEnabled = false
+                            binding.registerPersonalButton.isEnabled = false
                         }
                         is ResponseService.Success -> {
                             communicator.manageLoader(false)
                             // TODO: navegar a pantalla de datos personales
+                            findNavController().navigate(R.id.action_registerFragment2_to_registerPersonalFragment)
                         }
                         is ResponseService.Error -> {
                             communicator.manageLoader(false)
-                            binding.signInButton.isEnabled = true
+                            binding.registerPersonalButton.isEnabled = true
                             Snackbar.make(binding.root, state.error,
                                 Snackbar.LENGTH_LONG).show()
                         }

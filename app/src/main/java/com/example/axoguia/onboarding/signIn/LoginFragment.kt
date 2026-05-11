@@ -15,10 +15,12 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import com.example.axoguia.R
 import com.example.axoguia.core.FragmentCommunicator
+import com.example.axoguia.core.ResponseService
 import com.example.axoguia.databinding.FragmentLoginBinding
+import com.example.axoguia.home.HomeActivity
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.launch
-import kotlin.io.root
+
 
 class LoginFragment : Fragment() {
 
@@ -65,9 +67,9 @@ class LoginFragment : Fragment() {
             val password = binding.passwordTiet.text.toString().trim()
             viewModel.requestLogin(email, password)
         }
-        binding.registerText.setOnClickListener {
+        binding.registerButton.setOnClickListener {
             findNavController()
-                .navigate(R.id.action_loginFragment_to_registerFragment)
+                .navigate(R.id.action_loginFragment2_to_registerFragment2)
         }
     }
 
@@ -78,7 +80,7 @@ class LoginFragment : Fragment() {
                     when (state) {
                         is ResponseService.Loading -> {
                             communicator.manageLoader(true)
-                            binding.signInButton.isEnabled = false
+                            binding.login.isEnabled = false
                         }
                         is ResponseService.Success -> {
                             communicator.manageLoader(false)
@@ -88,7 +90,7 @@ class LoginFragment : Fragment() {
                         }
                         is ResponseService.Error -> {
                             communicator.manageLoader(false)
-                            binding.signInButton.isEnabled = true
+                            binding.login.isEnabled = true
                             Snackbar.make(binding.root, state.error,
                                 Snackbar.LENGTH_LONG).show()
                         }
