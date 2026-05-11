@@ -55,7 +55,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:fontFamily="casual"
-            android:text="necesiaún amos saber más de ti..."
+            android:text="aún necesitamos saber más de ti..."
             android:textColor="#1F1E1E"
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
