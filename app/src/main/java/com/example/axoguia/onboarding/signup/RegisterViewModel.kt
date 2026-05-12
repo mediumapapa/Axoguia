@@ -1,5 +1,6 @@
 package com.example.axoguia.onboarding.signup
 
+import android.util.Patterns
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.axoguia.core.AuthRepository
@@ -10,32 +11,48 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
-class RegisterViewModel: ViewModel() {
+class RegisterViewModel : ViewModel() {
 
     private val authRepository = AuthRepository()
     private val _registerState = MutableStateFlow<ResponseService<FirebaseUser>?>(null)
     val registerState: StateFlow<ResponseService<FirebaseUser>?> = _registerState.asStateFlow()
 
+    fun validateName(name: String): String? {
+        if (name.isBlank()) return "El nombre es requerido"
+        if (name.length < 2) return "Minimo 2 caracteres"
+        return null
+    }
 
-    // --- Validación ---
-    fun validateEmail(email: String): String? { /* igual que SignInViewModel */ return null }
-    fun validatePassword(password: String): String? { /* igual */ return null }
+    fun validateEmail(email: String): String? {
+        if (email.isBlank()) return "El correo es requerido"
+        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) return "Correo invalido"
+        return null
+    }
+
+    fun validatePassword(password: String): String? {
+        if (password.isBlank()) return "La contrasena es requerida"
+        if (password.length < 8) return "Minimo 8 caracteres"
+        return null
+    }
 
     fun validateConfirmPassword(password: String, confirm: String): String? {
-        if (confirm.isBlank()) return "Confirma tu contraseña"
-        if (password != confirm) return "Las contraseñas no coinciden"
+        if (confirm.isBlank()) return "Confirma tu contrasena"
+        if (password != confirm) return "Las contrasenas no coinciden"
         return null
     }
 
     fun isRegisterFormValid(
-        email: String, password: String, confirm: String
+        name: String,
+        email: String,
+        password: String,
+        confirm: String
     ): Boolean {
-        return validateEmail(email) == null &&
-                validatePassword(password) == null &&
-                validateConfirmPassword(password, confirm) == null
+        return validateName(name) == null &&
+            validateEmail(email) == null &&
+            validatePassword(password) == null &&
+            validateConfirmPassword(password, confirm) == null
     }
 
-    // --- Operación de registro ---
     fun requestSignUp(name: String, email: String, password: String) {
         viewModelScope.launch {
             _registerState.value = ResponseService.Loading

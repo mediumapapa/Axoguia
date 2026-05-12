@@ -7,7 +7,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
 
-class UserRepository {
+class UserRepository : UserService {
     private val firestore = FirebaseFirestore.getInstance()
     private val userCollection = firestore.collection("users")
 

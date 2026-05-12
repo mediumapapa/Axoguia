@@ -15,7 +15,6 @@ import com.example.axoguia.R
 import com.example.axoguia.core.FragmentCommunicator
 import com.example.axoguia.core.ResponseService
 import com.example.axoguia.databinding.FragmentRegisterBinding
-import com.example.axoguia.onboarding.signIn.SignInViewModel
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.launch
 
@@ -40,24 +39,25 @@ class RegisterFragment : Fragment() {
 
     private fun setupValidation() {
         binding.registerPersonalButton.isEnabled = false
-        val watcher = { validateAndEnable() }
         binding.nameTiet.addTextChangedListener { validateAndEnable() }
         binding.emailTiet.addTextChangedListener { validateAndEnable() }
         binding.passwordTiet.addTextChangedListener { validateAndEnable() }
+        binding.confirmPasswordTiet.addTextChangedListener { validateAndEnable() }
     }
 
     private fun validateAndEnable() {
+        val name = binding.nameTiet.text.toString().trim()
         val email = binding.emailTiet.text.toString().trim()
         val pass = binding.passwordTiet.text.toString().trim()
-        val confirm = binding.passwordTiet.text.toString().trim()
+        val confirm = binding.confirmPasswordTiet.text.toString().trim()
 
+        binding.nameTiet.error = viewModel.validateName(name)
         binding.emailTiet.error = viewModel.validateEmail(email)
         binding.passwordTiet.error = viewModel.validatePassword(pass)
-        binding.passwordTiet.error =
-            viewModel.validateConfirmPassword(pass, confirm)
+        binding.confirmPasswordTiet.error = viewModel.validateConfirmPassword(pass, confirm)
 
         binding.registerPersonalButton.isEnabled =
-            viewModel.isRegisterFormValid(email, pass, confirm)
+            viewModel.isRegisterFormValid(name, email, pass, confirm)
     }
 
     private fun setupClickListeners() {

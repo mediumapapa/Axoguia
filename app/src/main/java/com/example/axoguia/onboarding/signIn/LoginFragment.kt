@@ -2,7 +2,6 @@ package com.example.axoguia.onboarding.signIn
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Patterns
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -70,6 +69,10 @@ class LoginFragment : Fragment() {
         binding.registerButton.setOnClickListener {
             findNavController()
                 .navigate(R.id.action_loginFragment2_to_registerFragment2)
+        }
+        binding.restPasswordButton.setOnClickListener {
+            findNavController()
+                .navigate(R.id.action_loginFragment2_to_restPasswordFragment)
         }
     }
 
