@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_axolotl_panel"
     android:fillViewport="true"
     tools:context=".home.conservation.ConservationPlacesFragment">
 
