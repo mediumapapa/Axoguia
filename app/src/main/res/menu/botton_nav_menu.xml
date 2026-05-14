@@ -11,10 +11,10 @@
     <item
         android:id="@+id/axolotlFactsFragment"
         android:icon="@drawable/ic_facts"
-        android:title="Facts"/>
+        android:title="Datos"/>
     <item
         android:id="@+id/accountFragment"
         android:icon="@drawable/account_ic"
-        android:title="Account"/>
+        android:title="Cuenta"/>
 
 </menu>
