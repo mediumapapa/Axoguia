@@ -40,18 +40,6 @@ class PlacesAdapter(
             binding.tvPlaceBorough.text = place.borough
             binding.tvPlaceName.text = place.shortName
             binding.tvPlaceType.text = place.type
-            binding.tvPlaceDescription.text = place.description
-            binding.tvPlaceAddress.text = place.address
-            binding.tvPlaceAccess.text = if (place.publicAccess) {
-                "Acceso publico"
-            } else {
-                "Requiere autorizacion"
-            }
-            binding.tvPlaceAppointment.text = if (place.requiresAppointment) {
-                "Requiere cita"
-            } else {
-                "Sin cita"
-            }
 
             binding.root.setOnClickListener {
                 onItemClick(place)

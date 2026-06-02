@@ -5,7 +5,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.LayoutInflater
 import androidx.fragment.app.Fragment
-import com.example.axoguia.databinding.FragmentConservationPlacesBinding
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
@@ -13,19 +12,18 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.axoguia.core.FragmentCommunicator
 import com.example.axoguia.core.ResponseService
+import com.example.axoguia.databinding.FragmentPlacesBinding
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.launch
 
 
 class PlacesFragment : Fragment() {
 
-    private var _binding: FragmentConservationPlacesBinding? = null
+    private var _binding: FragmentPlacesBinding? = null
     private val binding get() = _binding!!
     private val viewModel: PlacesViewModel by viewModels()
     private lateinit var communicator: FragmentCommunicator
-    private val adapter = PlacesAdapter { place ->
-        Snackbar.make(binding.root, place.name, Snackbar.LENGTH_SHORT).show()
-    }
+    private val adapter = PlacesAdapter()
 
 
     override fun onCreateView(
@@ -33,16 +31,20 @@ class PlacesFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentConservationPlacesBinding.inflate(inflater, container, false)
+        _binding = FragmentPlacesBinding.inflate(inflater, container, false)
         communicator = requireActivity() as FragmentCommunicator
-        binding.rvPlaces.layoutManager = LinearLayoutManager(requireContext())
-        binding.rvPlaces.adapter = adapter
+        setupRecyclerView()
         observeState()
-        viewModel.loadPlaces()
+        viewModel.loadPlaces(limit = 10)
         return binding.root
     }
 
-    fun observeState(){
+    private fun setupRecyclerView() {
+        binding.rvPlaces.layoutManager = LinearLayoutManager(requireContext())
+        binding.rvPlaces.adapter = adapter
+    }
+
+    private fun observeState(){
         viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.uiState.collect { state ->
@@ -68,6 +70,7 @@ class PlacesFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
+        binding.rvPlaces.adapter = null
         _binding = null
     }
 }
