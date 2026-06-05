@@ -6,7 +6,7 @@
     app:startDestination="@id/loginFragment2">
     <fragment
         android:id="@+id/loginFragment2"
-        android:name="com.example.axoguia.LoginFragment"
+        android:name="com.example.axoguia.onboarding.signIn.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
@@ -19,7 +19,7 @@
 
     <fragment
         android:id="@+id/registerFragment2"
-        android:name="com.example.axoguia.RegisterFragment"
+        android:name="com.example.axoguia.onboarding.signup.RegisterFragment"
         android:label="fragment_register"
         tools:layout="@layout/fragment_register" >
         <action
@@ -28,12 +28,12 @@
     </fragment>
     <fragment
         android:id="@+id/restPasswordFragment"
-        android:name="com.example.axoguia.RestPasswordFragment"
+        android:name="com.example.axoguia.onboarding.restpwd.RestPasswordFragment"
         android:label="RestPasswordFragment"
         tools:layout="@layout/fragment_rest_password" />
     <fragment
         android:id="@+id/registerPersonalFragment"
-        android:name="com.example.axoguia.RegisterPersonalFragment"
+        android:name="com.example.axoguia.onboarding.registerpersonal.RegisterPersonalFragment"
         android:label="fragment_register_personal"
         tools:layout="@layout/fragment_register_personal" />
 </navigation>

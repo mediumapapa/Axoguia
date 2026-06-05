@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/homeFragment"
+        android:icon="@drawable/home_ic"
+        android:title="Home"/>
+    <item
+        android:id="@+id/conservationPlacesFragment"
+        android:icon="@drawable/ic_conservation"
+        android:title="Lugares"/>
+    <item
+        android:id="@+id/axolotlFactsFragment"
+        android:icon="@drawable/ic_facts"
+        android:title="Datos"/>
+    <item
+        android:id="@+id/accountFragment"
+        android:icon="@drawable/account_ic"
+        android:title="Cuenta"/>
+
+</menu>

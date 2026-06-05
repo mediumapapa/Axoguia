@@ -1,13 +1,11 @@
 plugins {
     alias(libs.plugins.android.application)
+    alias(libs.plugins.firebase)
 }
+
 android {
     namespace = "com.example.axoguia"
-    compileSdk {
-        version = release(36) {
-            minorApiLevel = 1
-        }
-    }
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.example.axoguia"
@@ -44,13 +42,20 @@ dependencies {
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.navigation.fragment)
-    // implementation(libs.androidx.annotation)
-    //implementation(libs.androidx.lifecycle.livedata.ktx)
-    //implementation(libs.androidx.lifecycle.viewmodel.ktx)
-    //implementation(libs.androidx.navigation.fragment.ktx)
-    //implementation(libs.androidx.navigation.ui.ktx)
-    //implementation(libs.config))
-    testImplementation(libs.lottie)
+    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.androidx.navigation.ui.ktx)
+    implementation(libs.lottie)
+
+    // Firebase
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.auth)
+    implementation(libs.firebase.firestore)
+    implementation(libs.coroutines.core)
+    implementation(libs.coroutines.android)
+
+    // Test
+
+    testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 }

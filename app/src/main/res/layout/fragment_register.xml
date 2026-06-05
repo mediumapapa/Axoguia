@@ -94,6 +94,7 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/nameTiet"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="casual"
@@ -114,6 +115,7 @@
                 app:layout_constraintTop_toBottomOf="@id/til_name">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/emailTiet"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="casual"
@@ -134,6 +136,7 @@
                 app:layout_constraintTop_toBottomOf="@id/til_email_reg">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/passwordTiet"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="casual"
@@ -141,6 +144,43 @@
                     android:inputType="textPassword"
                     android:textSize="14sp" />
             </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_confirm_pass_reg"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/til_pass_reg">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/confirmPasswordTiet"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="casual"
+                    android:hint="Confirmar contrasena:"
+                    android:inputType="textPassword"
+                    android:textSize="14sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/registerText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="casual"
+                android:text="¿Ya tienes una cuenta? Inicia sesión"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/registerPersonalButton"
@@ -156,8 +196,9 @@
                 android:textSize="14sp"
                 app:cornerRadius="32dp"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/til_pass_reg" />
+                app:layout_constraintTop_toBottomOf="@id/til_confirm_pass_reg" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </LinearLayout>

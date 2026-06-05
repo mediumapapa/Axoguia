@@ -4,65 +4,67 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    tools:context=".onboarding.registerpersonal.RegisterPersonalFragment"
     android:fillViewport="true">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:weightSum="10"> <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="3"
-        android:background="#CA6BEF">
+        android:weightSum="10">
 
-        <View
-            android:id="@+id/view"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#ffc5d3" />
+            android:layout_height="0dp"
+            android:layout_weight="3"
+            android:background="#CA6BEF">
 
-        <ImageView
-            android:id="@+id/iv_back"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:background="#D1A7B7"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@android:drawable/ic_menu_close_clear_cancel" />
+            <View
+                android:id="@+id/view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#ffc5d3" />
 
-        <TextView
-            android:id="@+id/tv_welcome_reg"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="16dp"
-            android:text="¡No tan rápido!"
-            android:textAlignment="center"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-            android:textColor="#F6F6F6"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/tv_instruction_reg"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/iv_back"
-            app:layout_constraintVertical_chainStyle="packed" />
+            <ImageView
+                android:id="@+id/iv_back"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@android:drawable/ic_menu_close_clear_cancel" />
 
-        <TextView
-            android:id="@+id/tv_instruction_reg"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:fontFamily="casual"
-            android:text="necesiaún amos saber más de ti..."
-            android:textColor="#1F1E1E"
-            android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_welcome_reg" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/tv_welcome_reg"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:text="¡No tan rápido!"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textColor="#F6F6F6"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/tv_instruction_reg"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/iv_back"
+                app:layout_constraintVertical_chainStyle="packed" />
+
+            <TextView
+                android:id="@+id/tv_instruction_reg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="casual"
+                android:text="aún necesitamos saber más de ti..."
+                android:textColor="#1F1E1E"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_welcome_reg" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -83,12 +85,14 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/til_name"
+                    android:id="@+id/firstNameTil"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Nombre:">
+
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/firstNameTiet"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="casual"
@@ -96,13 +100,15 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/til_last_name"
+                    android:id="@+id/lastNameTil"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
                     android:hint="Apellidos:">
+
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/lastNameTiet"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="casual"
@@ -110,13 +116,15 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/til_username"
+                    android:id="@+id/usernameTil"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
                     android:hint="Nombre de usuario:">
+
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/usernameTiet"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="casual"
@@ -124,37 +132,42 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/til_phone"
+                    android:id="@+id/phoneTil"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
                     android:hint="Teléfono:">
+
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/phoneTiet"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="phone"
                         android:fontFamily="casual"
+                        android:inputType="phone"
                         android:textSize="14sp" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/til_birth_date"
+                    android:id="@+id/birthDateTil"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
                     android:hint="Fecha de nacimiento:">
+
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/birthDateTiet"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="date"
+                        android:focusable="false"
                         android:fontFamily="casual"
+                        android:inputType="date"
                         android:textSize="14sp" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/registerPersonalButton"
+                    android:id="@+id/saveButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="24dp"
