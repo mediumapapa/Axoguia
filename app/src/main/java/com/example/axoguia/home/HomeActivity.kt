@@ -9,7 +9,8 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.example.axoguia.R
 import com.example.axoguia.databinding.ActivityHomeBinding
-class HomeActivity: AppCompatActivity() {
+import com.example.axoguia.core.FragmentCommunicator
+class HomeActivity: AppCompatActivity(), FragmentCommunicator {
 
     private lateinit var binding: ActivityHomeBinding
 
@@ -30,5 +31,9 @@ class HomeActivity: AppCompatActivity() {
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.navHostFragment) as NavHostFragment
         val navController = navHostFragment.navController
         binding.bottomNavigationView.setupWithNavController(navController)
+    }
+
+    override fun manageLoader(isVisible: Boolean) {
+
     }
 }

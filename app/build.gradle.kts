@@ -52,6 +52,13 @@ dependencies {
     implementation(libs.firebase.firestore)
     implementation(libs.coroutines.core)
     implementation(libs.coroutines.android)
+    implementation(libs.coroutines.play.services)
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.gson)
+    implementation(libs.okhttp.logging)
+    implementation(libs.glide)
+    implementation(libs.androidx.recyclerview)
 
     // Test
 

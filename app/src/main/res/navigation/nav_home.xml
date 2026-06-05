@@ -19,9 +19,9 @@
 
     <fragment
         android:id="@+id/conservationPlacesFragment"
-        android:name="com.example.axoguia.home.conservation.ConservationPlacesFragment"
+        android:name="com.example.axoguia.home.places.PlacesFragment"
         android:label="Lugares"
-        tools:layout="@layout/fragment_conservation_places" />
+        tools:layout="@layout/fragment_places" />
 
     <fragment
         android:id="@+id/axolotlFactsFragment"
